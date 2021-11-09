@@ -1,0 +1,29 @@
+<span>{{ title }} Component is running!</span>
+
+<div>
+    <h1>
+        {{dataFromChild}}
+    </h1>
+</div>
+<p>--------------------------------------------------------------------------------------------------</p>
+
+<app-test1 (childData) = "dataFromChild=$event" [parentData]="name" [subject]="sub" ></app-test1>
+
+<br><br><br><br>
+
+
+
+
+<p>===============================================================================================</p>
+
+
+
+
+<div>
+    <p>Parent Component with test-2 as child component</p>
+    <input type="text" name="" #inputBox> &nbsp; <button (click)=onClick(inputBox.value)>Submit</button>
+
+</div>
+
+<p>-------------------------------------------------------------------------------</p>
+<app-test2  [dataFromParent] = "dataFromInputBox"></app-test2>

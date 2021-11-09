@@ -1,0 +1,13 @@
+#hi{
+    background-color: rgb(39, 119, 129);
+    width: 50%;
+    /* display: inline; */
+}
+
+#hello{
+    background-color: coral;
+    width: 50%;
+    margin-left: 50%;
+    margin-top: -19px;
+    /* display: inline; */
+}

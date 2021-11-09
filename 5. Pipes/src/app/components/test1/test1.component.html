@@ -1,0 +1,60 @@
+<p>test1 - Child Component is working</p>
+
+
+<h2><u>Pipes Concepts</u></h2>
+
+<p>**Pipe Operator transfers the data only for the view. 
+    It does not change the value of the property in the class**</p>
+
+<!-- Pipes Conecpt with properties -->
+<h3><u>Pipes Conecpt with properties</u></h3>
+
+<h3>{{name}}</h3>
+<h3>{{name | uppercase}}</h3>  <!-- pipes with uppercase -->
+<h3>{{name | lowercase}}</h3>  <!-- pipes with lowerercase -->
+<h3>{{name | titlecase}}</h3>  <!-- pipes with titlecase -->
+<h3>{{name | slice : 3}}</h3>  <!-- pipes with slice.  Slicing the string starts at 3rd index -->
+<h3>{{name | slice : 3:12}}</h3> <!-- pipes with slice.  Slicing the string starts at 3rd index and ends before 12th index. (Doesn't include 12th index) -->
+
+
+<!-- Pipes Conecpt with Json -->
+<h3><u>Pipes Conecpt with Json</u></h3>
+
+<h3>{{person | json}}</h3>
+
+
+<!-- Pipes Conecpt with numbers. Use of number pipe.  -->
+<h3><u>Pipes Conecpt with numbers. Use of number pipe</u></h3>
+
+<h3>{{5.678 | number : '1.2-3'}}</h3> <!-- this format means... it can show 1 digit before decimal, 
+    and minimun 2 digits or maximum 3 digits after decimal -->
+
+<h3>{{5.678 | number : '3.4-5'}}</h3> <!-- this format means... it can show 3 digits before decimal 
+    but there is only 1 digit available in that given number. Thats why it will add 0's in the left of that digit. 
+    And minimun 4 digits or maximum 5 digits after decimal but there are only 3 digits available in that given number. 
+    Thats why it will add 0's in the right of that digit -->
+
+<h3>{{5.678 | number : '3.1-2'}}</h3> <!-- this format means... it can show 3 digits before decimal 
+    but there is only 1 digit available in that given number. Thats why it will add 0's in the left of that digit.
+    And minimun 1 digit or maximum 2 digits after decimal but there are 3 digits available in that given number. 
+    Thats why it will round up the digit 78 from .678 to 8. 
+    That's why it will show .68 as output -->
+
+   
+<!-- percent pipe -->
+<h3><u>Percent pipe</u></h3>
+
+<h3>{{0.25 | percent}}</h3> 
+
+<!-- currency pipe -->
+<h3><u>Currency pipe</u></h3>
+
+<h3>{{0.25 | currency}}</h3> 
+
+<!-- Date pipe -->
+<h3><u>Date pipe </u></h3>
+
+<h3>{{date}}</h3>
+<h3>{{date  | date:'short'}}</h3>
+<h3>{{date  | date:'shortDate'}}</h3>
+<h3>{{date  | date:'shortTime'}}</h3>

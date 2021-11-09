@@ -1,0 +1,100 @@
+<p>test1 component is working!</p>
+
+<!-- ============================================================================== -->
+<!-- Binding Concept -->
+<h1><u>Binding Concept</u></h1>
+
+<!-- Interpolation Example -->
+<h2><u>Interpolation Example</u></h2>
+<p>Welcome {{name}}</p>
+
+    <!-- Angular evaluates the expression within {{}} and displays the result in the browser-->
+<p>Welcome {{2+2}}</p>
+
+    <!-- String concatination -->
+<p>{{"welcome to "+ frmwrk}} </p> 
+<p>{{"name length is : "+name.length}}</p>
+
+    <!-- function call within{{}} -->
+<p>{{userName()}}</p>
+
+<!-- ============================================================================== -->
+
+<!-- property binding Example -->
+<h2><u>Property Binding Example</u></h2>
+
+<input [id]="myid" type="text" value="Subham" name="" id=""> <br> <br>
+
+<input [disabled]="isDisabled" type="text" value="Subham" name="" id=""> <br><br>
+
+<input [disabled]="Disabled" type="text" value="Subham" name="" id="">
+
+<!-- ============================================================================== -->
+
+<!-- Class Binding Example -->
+<h2><u> Class Binding Example</u></h2>
+
+
+    <!-- Normal h2 tag with a regular class --> 
+<h2 class="text-danger">Subham Samantaray</h2>
+
+    <!-- Class Binding syntax -->
+<h2 [class]="dangerClass">Subham Samantaray</h2>
+
+    <!-- A regular class attribute becomes a dommy attribute
+         in the presence of class binding. 
+         The regular class attribute will not work -->
+<h2 class="text-danger" [class]="specialClass">Subham Samantaray</h2>
+
+    <!-- class binding with boolean statement -->
+    <!-- if the value of hasError property is true then only the text-danger class will be applied -->
+<h2 [class.text-danger]="hasError">Subham Samantaray</h2>
+
+    <!-- Here the value of hasError property is false. 
+         Thats why the text-danger class will not be applied -->
+    <!-- Here we can apply single class property -->
+<h2 [class.text-danger]="hasErrors">Subham Samantaray</h2>
+
+    <!-- But here by the use of 'ngClass', we can apply multiple class properties -->
+    <!-- In the 'multipleClasses' class, 
+         the properties with the value 'true' will be applied -->
+<h2 [ngClass]="multipleClasses"> ngClass attribute </h2>
+
+
+<!-- ============================================================================== -->
+
+<!-- Event Binding Example -->
+<h2><u>Event Binding Example</u></h2>
+
+<!-- Event Binding Syntax -->
+
+    <!-- onClick() is a simple function which is declared in TS file -->
+<button (click)="onClick()">click me</button>
+    <!-- Event Binding through Interpolation -->
+{{event}}
+
+<!-- ============================================================================== -->
+
+<!-- Template Referance Variable Example -->
+<h2><u>Template Referance Variable Example</u></h2>
+
+<!-- syntax -->
+<input type="text" #box> 
+<!-- Here #box is the Template Referance Variable. 
+     We are using that variable to fetch the input value -->
+<button (click)=onClickme(box.value)>Click me</button>
+<p>**Click and check console**</p>
+
+<!-- ============================================================================== -->
+
+<!-- Two Way Binding Example -->
+<h2><u>Two Way Binding Example</u></h2>
+
+<!-- TWB allows us to update the property and display the value of that property at the same time. 
+     For TWB, Angular provides a directive which is 'ngModel'-->
+
+    <p>**Type anything inside the input box**</p>
+<!-- Syntax --> 
+<input type="text" [(ngModel)]="inputData"> {{inputData}}
+<!--   [()]    ==>    Here [] is for property-binding which is dataflow from Class to template
+                      and () is for event-binding which is dataflow from template to Class -->

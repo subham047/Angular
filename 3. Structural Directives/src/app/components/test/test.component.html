@@ -1,0 +1,115 @@
+<p>test Component is working!</p>
+
+
+<!-- Structural Directives are directives which let us add or remove HTML elements from the DOM -->
+<h1><u>Structural Directives Examples</u></h1>
+
+<!-- ======================================================================================================== -->
+
+<h2><u> ngIf , ngSwitch, ngFor</u></h2>
+<!-- ngIf , ngSwitch, ngFor -->
+<p> ** 'ngIf' and 'ngSwitch' are used to conditionally render the HTML elements where as 'ngFor' is used to render a list of HTML elements **</p>
+
+<!-- ======================================================================================================== -->
+
+<h2><u>ngIf</u></h2>
+
+<!-- Basic Usage of ngIf -->
+<h3><u>Basic Usage of ngIf</u></h3>
+
+    <!-- If value of ngIf is "true", then only the HTML element is rendering in DOM -->
+    <h2 *ngIf="true">
+        Subham Samantaray
+    </h2>
+    <!-- Here value of ngIf is "false", that's why it's not rendering in DOM -->
+    <h2 *ngIf="false">
+        Subham Samantaray
+    </h2>
+
+    <!-- ngIf - by using properties -->
+    <h3><u>ngIf - by using properties</u></h3>
+
+    <h2 *ngIf="isDisplayName">
+        Subham Samantaray - ngIf with properties of value "true"
+    </h2>
+
+    <h2 *ngIf = "isNotDisplayName">
+        Subham Samantaray - ngIf with properties of value "false"
+    </h2>
+
+    <!-- Implimenting "else block" with "ngIf" -->
+    <h3><u>Implimenting "else block" with "ngIf"</u></h3>
+
+    <!-- If value of ngIf is true, then the value will render which is attached to the <h2> HTML tag
+         else it will render the value of that HTML-element of which we have given the Template Reference Variable   -->
+
+    <!-- The "ng-template" tag is a container for other elements that the "ngIf" directive can use to properly 
+         add or remove the lots of HTML elements from the DOM -->
+    
+        <!-- if part -->
+        <h2 *ngIf="isDisplay; else elseBlockTag">
+        Subham - ngIf
+        </h2>
+        
+        <!-- else part -->
+        <ng-template #elseBlockTag>
+            <h2 >
+                Name hidden - else
+            </h2>
+        </ng-template>
+    
+    <!-- Another syntax of "ngIf" -->
+    <h3><u>Another syntax of "ngIf"</u></h3>
+    
+    <div *ngIf="isDisplay; then ifBlock; else elseBlock"></div>
+    
+    <!-- if part -->
+    <ng-template #ifBlock>
+        <h2>
+            (If part) Hi there...
+        </h2>
+        <h2>
+            This is another syntax of ngIf
+        </h2>
+    </ng-template>
+
+    <!-- Else part -->
+    <ng-template #elseBlock>
+        <h2>
+            (Else part) Hi there...
+        </h2>
+        <h2>
+            This is another syntax of ngIf
+        </h2>
+    </ng-template>
+
+    <!-- ======================================================================================================== -->
+
+<h2><u>ngSwitch Examples</u></h2>
+
+<!-- "ngSwitch" is like a switch case in other programming languages languages.
+      Only difference is here we have to render the HTML elements instead of executing any logic -->
+    
+    <!-- Syntax and Usage -->
+    
+    <div [ngSwitch]="color">
+        <div *ngSwitchCase ="'red'" >Picked Red Color</div>
+        <div *ngSwitchCase ="'blue'">Picked blue Color</div>
+        <div *ngSwitchCase ="'green'">Picked green Color</div>
+        <div *ngSwitchDefault>Pick again!!!</div>
+    </div>
+
+<!-- ======================================================================================================== -->
+
+<h2><u>ngFor Examples</u></h2>
+
+<!-- "ngFor" is like a "For loop" in other programming languages languages.
+      Only difference is here we have to render the HTML elements instead of executing any logic -->
+
+    <!-- Syntax and Usage -->
+
+    <div *ngFor="let colorList of colorsArray; index as i; first as f; last as l; odd as o; even as e">
+
+        <h3>index - {{i}} || first_index - {{f}} || last_index - {{l}} || odd - {{o}} || even - {{e}} || color_list in array -  {{colorList}}</h3>
+
+    </div>

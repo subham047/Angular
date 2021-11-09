@@ -1,0 +1,15 @@
+/* Styles for Class Binding example */
+
+.text-danger{
+    color: red;
+}
+
+.text-success{
+    color: green;
+    font-weight:unset;
+}
+
+.text-special{
+    color: rgb(163, 98, 36);
+    font-style: italic;
+}

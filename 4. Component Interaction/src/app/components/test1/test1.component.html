@@ -1,0 +1,59 @@
+<p>test1 component- Child Component is working!</p>
+
+
+<!-- Process of Data flow from both sides -->
+
+<!-- ============================================================================= -->
+
+<!-- Data flow from Parent Component to Child Component -->
+
+<!-- To send data from Parent to child, 
+    
+        - first declare a property in parent component. 
+          For Example: "name" in App Component
+        - And bind it to the child selector. 
+          For Example : [parentData]="name" in test1-selector
+        - In Child component, Create another property with @Input() to receive the data from parent component.
+          For example : @Input() public parentData;
+        - Then we can bind it in child component template.
+          For example : "Hi "+parentData with interpolation -->
+
+<!-- ======================================================================================================== -->
+
+<!-- Data flow from Child Component to parent Component -->
+
+<!-- **We can send data from child to Parent by events** -->
+
+<!-- To send data from child to Parent,
+
+    - First we create the instance of EventEmitter class and emit it from the child component. We can do that with the @Output().
+      For Example : @Output() public someChildPropertyName = new EventEmitter();
+    - Then we can create an event and we can put the message/data in that event function, which we want to send.
+      For Example : EventName()
+                    {
+                        this.somePropertyName.emit("Some message/data");
+                    }
+    - Then the parent component listens to the event which get activate. 
+      And then the '$event' sign fetches the argument/message/data which we have sent from child component.
+      so it can assign that messgae/data/argument to a property of parent component.
+      
+      For Example : (someChildPropertyName) = "propertyFromParentComponent = $event" in chld component selector.
+    
+    - Then we can display it in parent component by binding it.
+      For Example : +message+ with interpolation -->
+
+<!-- ==================================================================================================================== -->
+
+<!-- Data flow from Parent_Component(App) to Child_Component(test1) -->
+<h2><u>Data flow from Parent_Component(App) to Child_Component(test1)</u></h2>
+
+<h1>This data is from Parent Component</h1>
+<h3>{{"Hi "+parentData}}</h3>
+
+<!-- Another Syntax Example -->
+<h3>{{"Hello"+sub}}</h3>
+
+<!-- Data flow from Child_Component(test1) to Parent_Component(App) -->
+<h2><u>Data flow from Child_Component(test1) to Parent_Component(App)</u></h2>
+
+<button (click)=fireEvent()>Click On Event</button> &nbsp; Click o the button and Check in Parent Component
