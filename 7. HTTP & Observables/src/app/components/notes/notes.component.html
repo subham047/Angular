@@ -25,6 +25,56 @@ HTTP and Observables :
         which can be used later in the VIEW.
 
 
+        WITH EXAMPLE :
+
+        app.module.ts
+        1 - import 'HttpClientModule' from '@angular/commom/http' in 'app.module.ts' also in "import-section" add the 'HttpClientModule'.
+        
+        service-file
+        2 - import 'HttpClient' from '@angular/commom/http' in service-file. 
+        Ex - import { HttpClient } from '@angular/common/http';
+
+
+        3 - Then create an instance of 'HttpClient' inside the constructor as parameter.
+            Create a variable and store the api url in that. Then within the class, create a function which fetches the api url through a "get-request" 
+            and returns it by using the instance of 'HttpClient'.
+            Ex - 
+                url="https://api.openbrewerydb.org/breweries";
+
+                constructor(private http:HttpClient) { }
+
+                getDetails(){
+                    return this.http.get(this.url);
+                }
+
+        component.ts
+        4 - import that service in component file. 
+            Ex - import {ServiceDemoService} from '../../service-demo.service'
+
+        5 - Then create an instance of that service inside the constructor as parameter..
+            Then within ngOnInit(){}, we have to subscribe that function by using the instance of the service which we created previously
+            and we can store the result with a call-back function.
+            Ex - 
+                data:any;
+    
+                constructor(private getData:ServiceDemoService) { }
+
+                ngOnInit() {
+                    this.getData.getDetails().subscribe((result)=>{
+                    console.log(result);
+                    this.data=result;
+                });
+
+        component.html
+        6 - bind the result and render it in UI.
+            Ex - 
+                <ul>
+                    <li *ngFor="let item of data">
+                        {{item.id}}
+
+                    </li>
+                </ul>
+
 RxJS :
 
 -> Reactive Extensions for Javascript
