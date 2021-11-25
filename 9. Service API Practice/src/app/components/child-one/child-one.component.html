@@ -1,0 +1,31 @@
+<p>child-one works!</p>
+
+<!-- <div>
+    <h1>
+        {{dataFromParent}}
+    </h1>
+</div> -->
+
+<!-- <ul>
+    <li *ngFor='let b of data'>
+        {{b.id}}
+    </li>
+</ul> -->
+
+
+
+    <div *ngFor='let item of data'>
+        <h4 *ngIf="dataFromParent==item.id">
+            {{item.name}}<br>
+            {{item.id}}<br>
+            {{item.street}}<br>
+            {{item.city}}
+        </h4>
+        <!-- <ng-template #elseBlock>
+            <h3>Wrong ID</h3>
+        </ng-template> -->
+    </div>
+
+
+
+

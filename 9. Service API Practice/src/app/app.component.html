@@ -1,0 +1,16 @@
+<span>{{ title }} app is running!</span><br><br>
+
+<label for="">ID :</label>&nbsp;
+
+<input type="text" name="" #id> &nbsp;
+
+<button (click)="onClick(id.value)">
+    View
+</button>
+
+<p>=================================================================================</p>
+
+
+
+
+<app-child-one [dataFromParent] = "dataFromInputBox" ></app-child-one>
